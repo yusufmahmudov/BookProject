@@ -13,13 +13,13 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 
 public class User {
 
     @Id
-    @GeneratedValue(generator = "user_seq", strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(sequenceName = "user_seq", name = "user_id_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(generator = "user_id_seq", strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(sequenceName = "user_id_seq", name = "user_id_seq", initialValue = 1, allocationSize = 1)
     private Integer id;
 
     @Column(name = "first_name")
@@ -42,10 +42,5 @@ public class User {
 
     @Column(name = "birth_date")
     private Date birthDate;
-
-
-    private Integer genderId;
-    private Integer cardId;
-
 
 }

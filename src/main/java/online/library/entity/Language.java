@@ -17,8 +17,8 @@ import javax.persistence.*;
 public class Language {
 
     @Id
-    @GeneratedValue(generator = "language_seq", strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(sequenceName = "language_seq", name = "language_id_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(generator = "language_id_seq", strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(sequenceName = "language_id_seq", name = "language_id_seq", initialValue = 1, allocationSize = 1)
     private Integer id;
 
     @Column(name = "name")

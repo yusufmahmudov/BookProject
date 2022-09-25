@@ -18,8 +18,8 @@ import javax.persistence.*;
 public class Card {
 
     @Id
-    @GeneratedValue(generator = "card_seq", strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(sequenceName = "card_seq", name = "card_id_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(generator = "card_id_seq", strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(sequenceName = "card_id_seq", name = "card_id_seq", initialValue = 1, allocationSize = 1)
     private Integer id;
 
     @Column(name = "name")

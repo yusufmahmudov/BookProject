@@ -15,11 +15,11 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "e_book")
 
-public class eBook {
+public class EBook {
 
     @Id
-    @GeneratedValue(generator = "e_book_seq", strategy = GenerationType.IDENTITY)
-    @SequenceGenerator(sequenceName = "e_book_seq", name = "e_book_id_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(generator = "e_book_id_seq", strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(sequenceName = "e_book_id_seq", name = "e_book_id_seq", initialValue = 1, allocationSize = 1)
     private Integer id;
 
     @Column(name = "name")
@@ -30,10 +30,15 @@ public class eBook {
 
     @Column(name = "publication")
     private Date publication;
-
-    private Integer authorId;
-    private Integer genreId;
-    private Integer languageId;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author authorId;
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genreId;
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private Language languageId;
 
 
 }

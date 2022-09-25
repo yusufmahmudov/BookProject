@@ -19,9 +19,9 @@ public class BookDto {
     private Double price;
     private Integer page;
     private Date publication;
-    private Integer authorId;
-    private Integer genreId;
-    private Integer languageId;
-    private Integer publisherId;
+    private AuthorDto authorId;
+    private GenreDto genreId;
+    private LanguageDto languageId;
+    private PublisherDto publisherId;
 
 }
