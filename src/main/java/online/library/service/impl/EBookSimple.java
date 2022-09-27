@@ -144,7 +144,7 @@ public class EBookSimple implements EBookService {
             throw new RuntimeException(e);
         }
         HttpHeaders header = new HttpHeaders();
-        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=img.jpg");
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=get.pdf");
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");
         header.add("Expires", "0");
