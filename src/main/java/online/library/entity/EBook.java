@@ -41,5 +41,7 @@ public class EBook {
     @JoinColumn(name = "language_id")
     private Language languageId;
 
+    private String path;
+
 
 }

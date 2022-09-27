@@ -10,9 +10,18 @@ import online.library.repository.EBookRepository;
 import online.library.service.EBookService;
 import online.library.service.manualMapper.AuthorMapper;
 import online.library.service.manualMapper.EBookMapper;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -117,5 +126,35 @@ public class EBookSimple implements EBookService {
                     .message("Was not deleted")
                     .build();
         }
+    }
+
+    @Override
+    public ResponseEntity<Resource> download(Integer id)  {
+        Optional<EBook> optionalEBook = eBookRepository.findById(id);
+        EBookDto eBookDto = new EBookDto();
+        if(optionalEBook.isPresent()){
+            eBookDto = EBookMapper.toDto(optionalEBook.get());
+        }
+
+        File file = new File(Objects.requireNonNull(getClass().getClassLoader().getResource("pdfDATA/" + eBookDto.getPath() + ".pdf")).getPath());
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        HttpHeaders header = new HttpHeaders();
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=img.jpg");
+        header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        header.add("Pragma", "no-cache");
+        header.add("Expires", "0");
+
+        InputStreamResource resource = new InputStreamResource(fileInputStream);
+
+        return ResponseEntity.ok()
+                .headers(header)
+                .contentLength(file.length())
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
     }
 }

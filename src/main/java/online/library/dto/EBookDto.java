@@ -23,4 +23,7 @@ public class EBookDto {
     private AuthorDto authorId;
     private GenreDto genreId;
     private LanguageDto languageId;
+
+    private String path;
+
 }

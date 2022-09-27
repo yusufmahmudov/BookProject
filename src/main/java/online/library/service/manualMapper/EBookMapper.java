@@ -14,6 +14,7 @@ public class EBookMapper {
                 .name(ebook.getName())
                 .page(ebook.getPage())
                 .publication(ebook.getPublication())
+                .path(ebook.getPath())
                 .build();
     }
 
@@ -27,6 +28,7 @@ public class EBookMapper {
                 .name(ebook.getName())
                 .page(ebook.getPage())
                 .publication(ebook.getPublication())
+                .path(ebook.getPath())
                 .build();
     }
 }

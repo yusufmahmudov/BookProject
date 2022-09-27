@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import online.library.dto.EBookDto;
 import online.library.dto.ResponseDto;
 import online.library.service.EBookService;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,11 @@ public class EBookController {
     @GetMapping
     public ResponseDto<List<EBookDto>> getAll(){
         return eBookService.getAllEBook();
+    }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<Resource> download(@RequestParam Integer id){
+        return eBookService.download(id);
     }
 
     @GetMapping("/{id}")
