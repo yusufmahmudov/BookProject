@@ -87,25 +87,26 @@ public class BookSimple implements BookService {
             Optional<Book> book = bookRepository.findById(bookDto.getId());
             BookDto bookDto2 = new BookDto();
 
-            if(book.isPresent()){ bookDto2 = BookMapper.toDto(book.get());
+            if (book.isPresent()) {
+                bookDto2 = BookMapper.toDto(book.get());
+            }
+//            if(bookDto.getAmount() == n)
 
-            if(bookDto.getAmount() == null){
-
-            bookRepository.save(BookMapper.toEntity(bookDto));
-            return ResponseDto.builder()
-                    .code(0)
-                    .success(true)
-                    .message("Updated")
-                    .build();
-        } catch (Exception i){
-            i.printStackTrace();
-            return ResponseDto.builder()
-                    .code(-1)
-                    .success(false)
-                    .message("NO")
-                    .build();
+                bookRepository.save(BookMapper.toEntity(bookDto));
+                return ResponseDto.builder()
+                        .code(0)
+                        .success(true)
+                        .message("Updated")
+                        .build();
+            } catch(Exception i){
+                i.printStackTrace();
+                return ResponseDto.builder()
+                        .code(-1)
+                        .success(false)
+                        .message("NO")
+                        .build();
+            }
         }
-    }
 
     @Override
     public ResponseDto deleteBook(Integer id) {
