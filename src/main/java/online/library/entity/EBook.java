@@ -33,6 +33,7 @@ public class EBook {
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author authorId;
+    private Double price;
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genreId;

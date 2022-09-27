@@ -18,6 +18,7 @@ public class EBookDto {
     private String name;
     private Integer page;
     private Date publication;
+    private Double price;
 
     private AuthorDto authorId;
     private GenreDto genreId;

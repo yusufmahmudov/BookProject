@@ -15,7 +15,6 @@ import java.util.Date;
 public class OrderDto {
 
     private Integer id;
-    private Integer total;
     private Date createdAt;
     private Integer userId;
 
