@@ -84,6 +84,14 @@ public class AuthorSimple implements AuthorService {
     @Override
     public ResponseDto updateAuthor(AuthorDto authorDto) {
         try {
+            Optional<Author> author = authorRepository.findById(authorDto.getId());
+
+            AuthorDto authorDto2 = new AuthorDto();
+            if(author.isPresent()){ authorDto2 = AuthorMapper.toDto(author.get()); }
+
+            if(authorDto.getFirstName() == null) authorDto.setFirstName(authorDto2.getFirstName());
+            if(authorDto.getLastName() == null) authorDto.setLastName(authorDto2.getLastName());
+
             authorRepository.save(AuthorMapper.toEntity(authorDto));
             return ResponseDto.builder()
                     .code(0)

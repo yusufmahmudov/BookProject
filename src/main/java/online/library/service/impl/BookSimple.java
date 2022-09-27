@@ -84,6 +84,13 @@ public class BookSimple implements BookService {
     @Override
     public ResponseDto updateBook(BookDto bookDto) {
         try {
+            Optional<Book> book = bookRepository.findById(bookDto.getId());
+            BookDto bookDto2 = new BookDto();
+
+            if(book.isPresent()){ bookDto2 = BookMapper.toDto(book.get());
+
+            if(bookDto.getAmount() == null){
+
             bookRepository.save(BookMapper.toEntity(bookDto));
             return ResponseDto.builder()
                     .code(0)
