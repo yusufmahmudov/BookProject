@@ -9,7 +9,7 @@ public class CardMapper {
                 .id(cardDto.getId())
                 .name(cardDto.getName())
                 .cardNumber(cardDto.getCardNumber())
-                .date(cardDto.getDate())
+                .valid_date(cardDto.getValid_date())
                 .build();
     }
 
@@ -18,7 +18,7 @@ public class CardMapper {
                 .id(card.getId())
                 .name(card.getName())
                 .cardNumber(card.getCardNumber())
-                .date(card.getDate())
+                .valid_date(card.getValid_date())
                 .build();
     }
 }

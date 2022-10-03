@@ -17,15 +17,12 @@ public class UserAddress {
     private Integer id;
 
     @ManyToOne
-    @Column(name = "user_id")
     private User user;
 
     @ManyToOne
-    @Column(name = "city_id")
     private City city;
 
     @ManyToOne
-    @Column(name = "region_id")
     private Region region;
 
     private String name_street;

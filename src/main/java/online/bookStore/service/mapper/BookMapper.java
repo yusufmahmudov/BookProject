@@ -12,8 +12,8 @@ public class BookMapper {
                 .price(bookDto.getPrice())
                 .amount(bookDto.getAmount())
                 .publication(bookDto.getPublication())
-                .publisherId(PublisherMapper.toEntity(bookDto.getPublisherId()))
-                .languageId(LanguageMapper.toEntity(bookDto.getLanguageId()))
+                .publisher(PublisherMapper.toEntity(bookDto.getPublisher()))
+                .language(LanguageMapper.toEntity(bookDto.getLanguage()))
                 .build();
     }
 
@@ -25,10 +25,8 @@ public class BookMapper {
                 .price(book.getPrice())
                 .amount(book.getAmount())
                 .publication(book.getPublication())
-                .publisherId(PublisherMapper.toDto(book.getPublisherId()))
-                .languageId(LanguageMapper.toDto(book.getLanguageId()))
+                .publisher(PublisherMapper.toDto(book.getPublisher()))
+                .language(LanguageMapper.toDto(book.getLanguage()))
                 .build();
     }
-
-
 }

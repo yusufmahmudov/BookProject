@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class JsonRow {
-    List<Element> elementList;
+    List<Element> elements;
 }

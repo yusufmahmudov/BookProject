@@ -27,8 +27,8 @@ public class UsersAddressController {
     }
 
     @PostMapping
-    public ResponseDto add(@RequestBody UserAddressDto userAddressDto){
-        return userAddressService.add(userAddressDto);
+    public ResponseDto add(@RequestParam String address, @RequestBody UserAddressDto userAddressDto){
+        return userAddressService.add(address, userAddressDto);
     }
 
     @PutMapping

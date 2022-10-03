@@ -24,7 +24,6 @@ public class Card {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "user_id")
     @ManyToOne
     private User user;
 
