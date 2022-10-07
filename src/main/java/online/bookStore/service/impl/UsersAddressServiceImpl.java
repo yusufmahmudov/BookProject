@@ -1,15 +1,12 @@
 package online.bookStore.service.impl;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
 import lombok.RequiredArgsConstructor;
-import online.bookStore.dto.RegionDto;
 import online.bookStore.dto.ResponseDto;
 import online.bookStore.dto.UserAddressDto;
-import online.bookStore.entity.Region;
 import online.bookStore.entity.UserAddress;
 import online.bookStore.repository.UserAddressRepository;
 import online.bookStore.service.UserAddressService;
@@ -19,7 +16,6 @@ import online.bookStore.service.jsonBuilder.JsonBody;
 import online.bookStore.service.jsonBuilder.JsonRow;
 import online.bookStore.service.mapper.UserAddressMapper;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -90,6 +86,7 @@ public class UsersAddressServiceImpl implements UserAddressService {
                     .message("Successfully updated")
                     .build();
         }
+
         return ResponseDto.builder()
                 .code(-3)
                 .success(false)
@@ -108,6 +105,7 @@ public class UsersAddressServiceImpl implements UserAddressService {
                     .message("Successfully deleted")
                     .build();
         }
+
         return ResponseDto.builder()
                 .code(-3)
                 .success(false)
@@ -150,7 +148,6 @@ public class UsersAddressServiceImpl implements UserAddressService {
         Distance distance = element.getDistance();
 
         Integer distanceBetweenTwoAddresses = distance.getValue();
-
         return distanceBetweenTwoAddresses;
     }
 }
