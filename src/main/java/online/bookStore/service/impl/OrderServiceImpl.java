@@ -15,9 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
-
     private final OrderRepository orderRepository;
-
     @Override
     public ResponseDto<List<OrderDto>> getAllOrder() {
         try {
@@ -40,7 +38,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public ResponseDto<OrderDto> getWithId(Integer id) {
+    public ResponseDto<OrderDto> getById(Integer id) {
         Optional<Order> order = orderRepository.findById(id);
 
         if(order.isPresent()){

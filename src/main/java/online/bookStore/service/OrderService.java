@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface OrderService {
     ResponseDto<List<OrderDto>> getAllOrder();
-    ResponseDto<OrderDto> getWithId(Integer id);
+    ResponseDto<OrderDto> getById(Integer id);
     ResponseDto addOrder(OrderDto orderDto);
     ResponseDto updateOrder(OrderDto orderDto);
     ResponseDto deleteOrder(Integer id);

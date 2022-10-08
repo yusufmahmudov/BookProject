@@ -119,7 +119,7 @@ public class AuthorServiceImpl implements AuthorService {
             return ResponseDto.builder()
                     .code(-1)
                     .success(false)
-                    .message("NO")
+                    .message(i.getMessage())
                     .build();
         }
     }

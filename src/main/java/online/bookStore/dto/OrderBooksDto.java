@@ -1,5 +1,4 @@
 package online.bookStore.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +8,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User_AuthorityDto {
+public class OrderBooksDto {
     private Integer id;
-    private Integer user_id;
-    private Integer authority_id;
+    private Integer book_id;
+    private Integer order_id;
+    private Integer amount;
 }

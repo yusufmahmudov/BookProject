@@ -21,7 +21,7 @@ public class OrderController {
 
     @GetMapping("/{id}")
     public ResponseDto<OrderDto> getOrderWithId(@PathVariable Integer id){
-        return orderService.getWithId(id);
+        return orderService.getById(id);
     }
 
     @PostMapping

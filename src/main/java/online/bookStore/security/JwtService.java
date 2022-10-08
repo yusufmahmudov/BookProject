@@ -31,7 +31,7 @@ public class JwtService {
                 .get(name_claim);
     }
 
-    public boolean validateToke(String token){
+    public boolean validateToken(String token){
         Claims claims = Jwts.parser()
                 .setSigningKey(key)
                 .parseClaimsJws(token).getBody();

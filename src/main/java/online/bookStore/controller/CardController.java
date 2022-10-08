@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/card")
 public class CardController {
     private final CardService cardService;
-
     @GetMapping
     public ResponseDto<List<CardDto>> getAll(){
         return cardService.getAllCard();

@@ -17,7 +17,6 @@ public class User {
     @GeneratedValue(generator = "user_id_seq", strategy = GenerationType.IDENTITY)
     @SequenceGenerator(sequenceName = "user_id_seq", name = "user_id_seq", initialValue = 1, allocationSize = 1)
     private Integer id;
-
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -39,5 +38,12 @@ public class User {
     private Date birthDate;
 
     @ManyToMany
+    @JoinTable(
+            name = "user_authorities",
+            joinColumns = @JoinColumn(name = "user_id"),
+            foreignKey = @ForeignKey(name = "fk_user_id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id"),
+            inverseForeignKey = @ForeignKey(name = "fk_authority_id")
+    )
     private Set<Authority> authorities;
 }

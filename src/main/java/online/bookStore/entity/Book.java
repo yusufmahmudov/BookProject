@@ -15,7 +15,6 @@ import java.util.Date;
 @Table(name = "book")
 
 public class Book {
-
     @Id
     @GeneratedValue(generator = "book_id_seq", strategy = GenerationType.IDENTITY)
     @SequenceGenerator(sequenceName = "book_id_seq", name = "book_id_seq", initialValue = 1, allocationSize = 1)

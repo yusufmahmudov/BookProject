@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-
     @GetMapping
     public ResponseDto<List<UserDto>> getAllUser(){
         return userService.getAllUser();
