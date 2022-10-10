@@ -14,6 +14,11 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
+    @PostMapping
+    public ResponseDto addNewOrder(@RequestParam Integer book_id, @RequestParam Integer amount){
+        return orderService.addNewOrder(book_id, amount);
+    }
+
     @GetMapping
     public ResponseDto<List<OrderDto>> getAllOrder(){
         return orderService.getAllOrder();
@@ -22,11 +27,6 @@ public class OrderController {
     @GetMapping("/{id}")
     public ResponseDto<OrderDto> getOrderWithId(@PathVariable Integer id){
         return orderService.getById(id);
-    }
-
-    @PostMapping
-    public ResponseDto addOrder(@RequestBody OrderDto orderDto){
-        return orderService.addOrder(orderDto);
     }
 
     @PutMapping

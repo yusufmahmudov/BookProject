@@ -58,20 +58,22 @@ public class OrderBookServiceImpl implements OrderBookService {
     }
 
     @Override
-    public ResponseDto addOrderBook(OrderBooksDto orderBooksDto) {
+    public ResponseDto addOrderBooks(Integer order_id, Integer book_id, Integer amount) {
         try {
-            orderBooksRepository.save(orderBookMapper.toEntity(orderBooksDto));
+            OrderBooks orderBook = new OrderBooks(null, book_id, order_id, amount);
+            orderBooksRepository.save(orderBook);
+
             return ResponseDto.builder()
                     .code(0)
                     .success(true)
-                    .message("OK")
+                    .message("Successfully saved")
                     .build();
         }catch (Exception e) {
             log.error(e.getMessage());
             return ResponseDto.builder()
                     .code(-1)
                     .success(false)
-                    .message("NO")
+                    .message(e.getMessage())
                     .build();
         }
     }
@@ -90,7 +92,7 @@ public class OrderBookServiceImpl implements OrderBookService {
             return ResponseDto.builder()
                 .code(-1)
                 .success(false)
-                .message("NOT UPDATED")
+                .message(e.getMessage())
                 .build();
        }
     }
@@ -105,6 +107,7 @@ public class OrderBookServiceImpl implements OrderBookService {
                     .success(true)
                     .build();
         }
+
         return ResponseDto.builder()
                 .code(-1)
                 .success(false)

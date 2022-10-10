@@ -26,11 +26,6 @@ public class OrderBooksController {
         return orderBookService.getById(id);
     }
 
-    @PostMapping("/add")
-    public ResponseDto addOrderBook(@RequestBody OrderBooksDto orderBooksDto){
-        return orderBookService.addOrderBook(orderBooksDto);
-    }
-
     @PutMapping
     public ResponseDto updateOrderBook(@RequestBody OrderBooksDto orderBooksDto){
         return orderBookService.updateOrderBook(orderBooksDto);

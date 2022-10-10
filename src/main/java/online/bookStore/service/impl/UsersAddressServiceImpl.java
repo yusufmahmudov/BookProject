@@ -142,7 +142,6 @@ public class UsersAddressServiceImpl implements UserAddressService {
             throw new RuntimeException(e);
         }
 
-        System.out.println(jsonBody.toString());
         JsonRow jsonRow = jsonBody.getRows().get(0);
         Element element = jsonRow.getElements().get(0);
         Distance distance = element.getDistance();
